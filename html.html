@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <title>test-labmedia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div
+        class="shadow vHidden"
+        id="modal"
+        tabindex="-1"
+        aria-modal="true"
+        aria-label="Description for modal content"
+        role="dialog"
+        onclick="closeModal()"
+        onmousedown="trueMouseDown(event)"
+      >
+        <div class="modal-fon"></div>
+        <div
+          class="modal"
+          onclick="event.stopPropagation()"
+          onmousedown="falseMouseDown(event)"
+        >
+          <div class="wrapper-modal">
+            <p class="question">Вы уверены, что хотите удалить пользователя?</p>
+            <div class="btns">
+              <button class="btn" id="yes" onclick="deleteRow()">Да</button>
+              <button
+                class="btn btn_blue"
+                onclick="closeModal()"
+                onmousedown="trueMouseDown(event)"
+                id="no"
+              >
+                Нет
+              </button>
+            </div>
+          </div>
+        </div>
+        <span
+          tabindex="0"
+          aria-hidden="true"
+          onfocus="document.getElementById('modal').focus()"
+        ></span>
+      </div>
+      <div class="wrapper">
+        <h1 class="h1">Список пользователей</h1>
+        <div class="wrapper-search">
+          <input
+            id="input"
+            type="text"
+            class="input-search"
+            placeholder="Поиск по имени или e-mail"
+          />
+          <button id="clean" class="clean vHidden">
+            <img src="image/clean.svg" alt="Очистить" class="clean-img" />
+            <p class="crean-p">Очистить фильтр</p>
+          </button>
+        </div>
+        <div class="sort" id="sort">
+          <p class="m-8px">Сортировка:</p>
+          <button class="sort-p" value="1">Дата регистрации</button>
+          <button class="sort-p" value="3">Рейтинг</button>
+        </div>
+        <table class="table">
+          <tbody id="tbody">
+            <tr class="table-title">
+              <td>Имя пользователя</td>
+              <td>E-mail</td>
+              <td>Дата регистрации</td>
+              <td>Рейтинг</td>
+              <td></td>
+            </tr>
+            <tr class="table-row">
+              <th colspan="5">Загрузка...</th>
+            </tr>
+          </tbody>
+        </table>
+        <div class="pages">
+          <button class="pages-p vHidden" id="back">Назад</button>
+          <button class="pages-p vHidden" id="next">Вперед</button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
